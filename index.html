@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div style="display: flex; flex-direction: row; gap: 24px; justify-content: center; align-items: flex-start;">
+  <div class="main-panels">
     <div class="calculator">
       <label for="color-scheme" style="display:block;margin-bottom:4px;font-weight:bold;">Color Scheme:</label>
       <select id="color-scheme" class="btn" style="width:100%;margin-bottom:10px;">
@@ -39,7 +39,7 @@
         <button class="btn sci" data-action="pi">π</button>
         <button class="btn sci" data-action="e">e</button>
       </div>
-      <div class="conversion-panels" style="display:none; flex-direction: row; gap: 16px; justify-content: center; align-items: flex-start;">
+      <div class="conversion-panels" style="display:none;">
         <div class="unit-panel">
           <div class="unit-header">Unit Converter</div>
           <div class="scientific-unit" style="margin-top: 10px; display: flex; gap: 4px; align-items: center; justify-content: center;">

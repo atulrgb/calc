@@ -493,4 +493,28 @@ body.theme-solarized #convert-currency-arrow:active,
 body.theme-solarized #convert-unit-arrow.pressed,
 body.theme-solarized #convert-currency-arrow.pressed {
   background: #886700;
+}
+
+@media (max-width: 500px) {
+  .conversion-panels {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.main-panels {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 500px) {
+  .main-panels {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 } 
