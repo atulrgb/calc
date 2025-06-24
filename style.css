@@ -61,6 +61,7 @@ button {
   transition: background 0.15s;
   font-family: inherit;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  touch-action: manipulation;
 }
 button:active, button:focus {
   outline: none;
@@ -87,6 +88,8 @@ button:active, button:focus {
 .btn-ac:active, .btn-ac:focus {
   background: #66bb6a;
 }
+
+
 /*
 @media (max-width: 500px) {
   .calculator {
@@ -102,5 +105,5 @@ button:active, button:focus {
     font-size: 1.1rem;
     padding: 0.7em 0;
   }
-  */
-} 
+}
+*/
