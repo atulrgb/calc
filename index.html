@@ -7,122 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main-panels">
-    <div class="calculator">
-      <label for="color-scheme" style="display:block;margin-bottom:4px;font-weight:bold;">Color Scheme:</label>
-      <select id="color-scheme" class="btn" style="width:100%;margin-bottom:10px;">
-        <option value="default">Default</option>
-        <option value="light">Light</option>
-        <option value="solarized">Solarized</option>
-      </select>
-      <button id="toggle-scientific" class="btn" style="width:100%;margin-bottom:10px;">Scientific Mode</button>
-      <div class="calculator-display" id="display">0</div>
-      <div class="scientific-buttons">
-        <!-- First row -->
-        <button class="btn sci" data-action="sin">sin</button>
-        <button class="btn sci" data-action="cos">cos</button>
-        <button class="btn sci" data-action="tan">tan</button>
-        <button class="btn sci" data-action="log">log</button>
-        <button class="btn sci" data-action="ln">ln</button>
-        <button class="btn sci" data-action="sqrt">√</button>
-        <!-- Second row -->
-        <button class="btn sci" data-action="sinh">sinh</button>
-        <button class="btn sci" data-action="cosh">cosh</button>
-        <button class="btn sci" data-action="tanh">tanh</button>
-        <button class="btn sci" data-action="cbrt">∛</button>
-        <button class="btn sci" data-action="abs">|x|</button>
-        <button class="btn sci" data-action="factorial">n!</button>
-        <!-- Remaining -->
-        <button class="btn sci" data-action="mod">mod</button>
-        <button class="btn sci" data-action="square">x²</button>
-        <button class="btn sci" data-action="power">xʸ</button>
-        <button class="btn sci" data-action="pi">π</button>
-        <button class="btn sci" data-action="e">e</button>
-      </div>
-      <div class="conversion-panels" style="display:none;">
-        <div class="unit-panel">
-          <div class="unit-header">Unit Converter</div>
-          <div class="scientific-unit" style="margin-top: 10px; display: flex; gap: 4px; align-items: center; justify-content: center;">
-            <select id="source-unit" class="btn btn-small" style="width:auto;min-width:48px;">
-              <option value="m">m</option>
-              <option value="km" selected>km</option>
-              <option value="cm">cm</option>
-              <option value="mm">mm</option>
-              <option value="in">in</option>
-              <option value="ft">ft</option>
-              <option value="yd">yd</option>
-              <option value="mi">mi</option>
-            </select>
-            <button id="convert-unit-arrow" class="btn btn-small" style="font-size:1.2em;padding:0 8px;min-width:32px;">→</button>
-            <select id="target-unit" class="btn btn-small" style="width:auto;min-width:48px;">
-              <option value="m">m</option>
-              <option value="km">km</option>
-              <option value="cm">cm</option>
-              <option value="mm">mm</option>
-              <option value="in">in</option>
-              <option value="ft">ft</option>
-              <option value="yd">yd</option>
-              <option value="mi">mi</option>
-            </select>
-          </div>
-        </div>
-        <div class="currency-panel">
-          <div class="currency-header">Currency Converter</div>
-          <div class="scientific-currency" style="display:none; margin-top: 10px; display: flex; gap: 4px; align-items: center; justify-content: center;">
-            <select id="source-currency" class="btn btn-small" style="width:auto;min-width:60px;">
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-              <option value="INR">INR</option>
-              <option value="JPY">JPY</option>
-              <option value="CNY">CNY</option>
-              <option value="AUD">AUD</option>
-              <option value="CAD">CAD</option>
-            </select>
-            <button id="convert-currency-arrow" class="btn btn-small" style="font-size:1.2em;padding:0 8px;min-width:32px;">→</button>
-            <select id="target-currency" class="btn btn-small" style="width:auto;min-width:60px;">
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-              <option value="INR" selected>INR</option>
-              <option value="JPY">JPY</option>
-              <option value="CNY">CNY</option>
-              <option value="AUD">AUD</option>
-              <option value="CAD">CAD</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="calculator-buttons">
-        <button class="btn" data-action="clear">C</button>
-        <button class="btn" data-action="sign">±</button>
-        <button class="btn" data-action="percent">%</button>
-        <button class="btn operator" data-action="divide">÷</button>
-
-        <button class="btn" data-number="7">7</button>
-        <button class="btn" data-number="8">8</button>
-        <button class="btn" data-number="9">9</button>
-        <button class="btn operator" data-action="multiply">×</button>
-
-        <button class="btn" data-number="4">4</button>
-        <button class="btn" data-number="5">5</button>
-        <button class="btn" data-number="6">6</button>
-        <button class="btn operator" data-action="subtract">−</button>
-
-        <button class="btn" data-number="1">1</button>
-        <button class="btn" data-number="2">2</button>
-        <button class="btn" data-number="3">3</button>
-        <button class="btn operator" data-action="add">+</button>
-
-        <button class="btn zero" data-number="0">0</button>
-        <button class="btn" data-action="decimal">.</button>
-        <button class="btn equals" data-action="equals">=</button>
-      </div>
-    </div>
-    <div class="history-panel">
-      <div class="history-header">History</div>
-      <div id="history-list"></div>
-      <button id="clear-history" class="btn btn-small" style="width:90%;margin:10px auto 0 auto;">Clear History</button>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn-ac" onclick="clearDisplay()">AC</button>
+      <button onclick="inputPercent()">%</button>
+      <button onclick="backspace()">⌫</button>
+      <button class="btn-op" onclick="inputOp('/')">÷</button>
+      <button onclick="inputNum('7')">7</button>
+      <button onclick="inputNum('8')">8</button>
+      <button onclick="inputNum('9')">9</button>
+      <button class="btn-op" onclick="inputOp('*')">×</button>
+      <button onclick="inputNum('4')">4</button>
+      <button onclick="inputNum('5')">5</button>
+      <button onclick="inputNum('6')">6</button>
+      <button class="btn-op" onclick="inputOp('-')">−</button>
+      <button onclick="inputNum('1')">1</button>
+      <button onclick="inputNum('2')">2</button>
+      <button onclick="inputNum('3')">3</button>
+      <button class="btn-op" onclick="inputOp('+')">+</button>
+      <button onclick="inputNum('0')">0</button>
+      <button onclick="inputDot()">.</button>
+      <button class="btn-equal" onclick="calculate()">=</button>
     </div>
   </div>
   <script src="script.js"></script>
